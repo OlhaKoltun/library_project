@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Create Author</title>
+{% endblock %}
+
+{% block content %}
+
+{% if not created %}
+<div>
+    <form action="." method="POST" >
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Name">
+        <input type="text" name="surname" placeholder="Surname">
+        <input type="text" name="patronymic" placeholder="Patronymic">
+        <input type="submit" value="Create Author">
+    </form>
+    <a href="{% url 'index_author' %}">Back to Author list</a>
+</div>
+{% else %}
+
+    <p>A new author was added!</p>
+    <a href="{% url 'detail' object.id %}">{{object.name}} {{object.surname}} - {{object.patronymic}}</a>
+
+{% endif %}
+
+
+{% endblock content %}

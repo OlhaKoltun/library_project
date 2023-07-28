@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>{{ author.name }} {{ author.surname }}</title>
+{% endblock %}
+
+{% block content %}
+<div>
+    <table class="table table-borderless">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Surname</td>
+                <td>Patronymic</td>
+            </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td>{{author.name}}</td>
+                    <td>{{author.surname}}</td>
+                    <td>{{author.patronymic}}</td>
+                </tr>
+        </tbody>
+    </table>
+</div>
+
+<a href="{% url 'index_author' %}">Back to Authors list</a>
+
+{% endblock content %}
