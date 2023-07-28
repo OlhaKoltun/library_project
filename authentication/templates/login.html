@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Log In</title>
+{% endblock %}
+
+{% block content %}
+
+<div>
+    <form method="POST">
+        {% csrf_token %}
+        {% if error %}
+        <p style="color:red">{{ error }}</p>
+        {% endif %}
+        <div>
+            <input type="text" name="email" placeholder="email"/>
+        </div>
+        <div>
+            <input type="password" name="password" placeholder="password"/>
+        </div>
+        <input type="submit" value="Log In">
+    </form>
+</div>
+
+<a href="{% url 'home' %}">Back to Home Page</a>
+
+{% endblock content %}
